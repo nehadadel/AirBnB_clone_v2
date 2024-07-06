@@ -161,7 +161,8 @@ class HBNBCommand(cmd.Cmd):
         params['created_at'] = now.strftime("%Y-%m-%dT%H:%M:%S.%f")
         params['updated_at'] = now.strftime("%Y-%m-%dT%H:%M:%S.%f")
         new_instance = HBNBCommand.classes[class_name](**params)
-        storage.save()
+        storage.new(new_instance)
+        new_instance.save()
         print(new_instance.id)
         storage.save()
 
